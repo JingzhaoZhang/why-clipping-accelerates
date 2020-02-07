@@ -1,5 +1,7 @@
 # Smoothness vs Gradient norm
 
+A pytorch implementation for the LSTM experiments in the paper: Why Gradient Clipping Accelerates Training: A Theoretical Justification for Adaptivity
+
 This repo is based on the repo at https://github.com/salesforce/awd-lstm-lm. Please refer to the original repo for a detailed setup description.
 
 For data setup, run `./getdata.sh`.
