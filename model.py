@@ -30,6 +30,7 @@ class RNNModel(nn.Module):
             for rnn in self.rnns:
                 rnn.linear = WeightDrop(rnn.linear, ['weight'], dropout=wdrop)
         print(self.rnns)
+
         self.rnns = torch.nn.ModuleList(self.rnns)
         self.decoder = nn.Linear(nhid, ntoken)
 
@@ -45,7 +46,8 @@ class RNNModel(nn.Module):
             self.decoder.weight = self.encoder.weight
 
         self.init_weights()
-
+        for r in self.rnns:
+            r.flatten_parameters()
         self.rnn_type = rnn_type
         self.ninp = ninp
         self.nhid = nhid
